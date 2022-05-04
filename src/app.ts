@@ -11,22 +11,23 @@ const port = config.get<number>("port")
 const host = config.get<string>("host")
 const corsOrigin = config.get<string>("corsOrigin")
 
-const app = express()
+const app = express();
 
-const httpServer = createServer(app)
+const httpServer = createServer(app);
 
 app.use(cors({
-  origin: "*"
+  origin: "*",
+  credentials: false
 }))
 
 const io = new Server(httpServer, {
     cors: {
       origin: "*",
-      allowedHeaders: ["Access-Control-Allow-Origin"],
+  credentials: false
+
     },
   });
 
-  
 
 
 app.get("/", ( _, res) => res.send(`Server is up and version: ${version}`))
