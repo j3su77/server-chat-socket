@@ -22,7 +22,7 @@ app.use(cors({
 const io = new Server(httpServer, {
     cors: {
       origin: "*",
-    
+      allowedHeaders: ["Access-Control-Allow-Origin"],
     },
   });
 
