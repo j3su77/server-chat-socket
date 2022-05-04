@@ -15,6 +15,10 @@ const app = express()
 
 const httpServer = createServer(app)
 
+app.use(cors({
+  origin: "*"
+}))
+
 const io = new Server(httpServer, {
     cors: {
       origin: corsOrigin,
